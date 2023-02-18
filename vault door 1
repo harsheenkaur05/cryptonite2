@@ -1,0 +1,4 @@
+
+charAt() method in Java returns the character in a given index on a string
+If we find the characters in order of the indices revealed by the charAt()  methods, we can find the flag manually.(comparing the given index with letters and then typing out to get the password )
+32 letters that is from 0th index to 31st index 
