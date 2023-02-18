@@ -1,0 +1,35 @@
+ solution is as simple as converting them all to base 10 
+ and then ASCII using Java's Byte.toString() method to convert the bytes into strings of base 10,
+ then using Inetegr.parseInt() to convert that String to an int and then casting the int to a char to get the ASCII value.
+ convert from each base in the myBytes to ASCII and we get the flag
+ There are 3 bases and chars. The 3 bases are first decimal, second hexadecimal, and third octal.
+ Difference between the decimal, hexadecimal and octal system is that the base in every system is different.
+ 
+ 
+ 
+ 
+ def crackPassowrd():
+    myBytes = [
+            106 , 85  , 53  , 116 , 95  , 52  , 95  , 98  ,
+            0x55, 0x6e, 0x43, 0x68, 0x5f, 0x30, 0x66, 0x5f,
+            0o142, 0o131, 0o164, 0o63 , 0o163, 0o137, 0o143, 0o61 ,
+            '9' , '4' , 'f' , '7' , '4' , '5' , '8' , 'e' ,]
+    newMyBytes = []
+    for val in myBytes:
+        if(isinstance(val, int)):
+            newMyBytes.append(chr(val))
+        elif(str(val).startswith('0x')):
+            newMyBytes.append(bytes.fromhex(val).decode('utf-8'))
+        elif(str(val).startswith('0o')):
+            newMyBytes.append(val)    
+        elif(isinstance(val, str)):
+            newMyBytes.append(val)
+    return newMyBytes
+
+def getFlag(newMyBytes):
+    res = "picoCTF{"
+    for i in newMyBytes:
+        res += i
+    return res + "}"
+
+print(getFlag(crackPassowrd()))
