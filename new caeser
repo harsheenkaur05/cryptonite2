@@ -3,22 +3,22 @@ import string
 LOWERCASE_OFFSET = ord("a")
 ALPHABET = string.ascii_lowercase[:16]
 
-flag = lkmjkemjmkiekeijiiigljlhilihliikiliginliljimiklligljiflhiniiiniiihlhilimlhijil "
+flag = "lkmjkemjmkiekeijiiigljlhilihliikiliginliljimiklligljiflhiniiiniiihlhilimlhijil "
 
 
 
-def GetBinaryEqIn4Bits(i,k):
+def Binary(i,k):
     
     position = ALPHABET.rfind(flag[i])
-    sum_of_t1_t2_mod16 = position
+    sum = position
     t2 = ord(k) - 97
     t1 = 0
-    if t2 == sum_of_t1_t2_mod16:
+    if t2 == sum:
         t1=0
-    elif t2 < sum_of_t1_t2_mod16:
-        t1 = sum_of_t1_t2_mod16 - t2
-    elif t2 > sum_of_t1_t2_mod16:
-        t1 = 16 + sum_of_t1_t2_mod16 - t2
+    elif t2 < sum:
+        t1 = sum - t2
+    elif t2 > sum:
+        t1 = 16 + sum - t2
     else:
         print("error")
         
@@ -32,7 +32,7 @@ def GetBinaryEqIn4Bits(i,k):
 final_char = ""
 for k in ALPHABET:
     for i in range(0, len(flag), 2):
-        concat = str(GetBinaryEqIn4Bits(i,k))+str(GetBinaryEqIn4Bits(i+1,k))
+        concat = str(Binary(i,k))+str(Binary(i+1,k))
         # print(concat)
         decEq = int(concat, 2)
         # print(decEq)
